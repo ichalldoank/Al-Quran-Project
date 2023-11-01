@@ -212,8 +212,7 @@
 
             const animatedText = document.querySelector('.animated-text');
             const words = ['Hello', 'اهلا وسهلا', 'Hola', 'Halo', 'Bonjour', 'Privet', 'Привет', 'こんにちは',
-                'Merhaba',
-                'Namaste', 'God Dag', 'Anyoung', '안녕하세요'
+                'Merhaba','Namaste', 'God Dag', 'Anyoung', '안녕하세요'
             ];
             let currentWordIndex = 0;
 
@@ -231,31 +230,41 @@
 
         fetch(api).then(response => response.json()).then(data => {
             data.forEach(el => {
+                
+                // membuat card utama
                 const card = document.createElement('div');
                 card.classList.add('card');
 
+                // membuat isi card atas
                 const atas = document.createElement('div');
                 atas.classList.add('card-atas');
 
+                // membuat isi card kiri
                 const kiri = document.createElement('div');
                 kiri.classList.add('card-kiri');
 
+                // membuat paragraf dengan mengambil teks dari element name dan element tsb diambil dari API yang kita ambil
                 const name = document.createElement('p');
                 name.textContent = el.name
 
+                // membuat paragraf dengan mengambil teks dari element ar element tsb diambil dari API yang kita ambil
                 const arti = document.createElement('p');
                 arti.textContent = el.name_translations.ar;
 
+                // membuat isi card kanan
                 const kanan = document.createElement('div');
                 kanan.classList.add('card-kanan');
 
+                // membuat paragraf dengan mengambil teks dari element number_of_surah element tsb diambil dari API yang kita ambil
                 const number_of_surah = document.createElement('p');
                 number_of_surah.textContent = el.number_of_surah;
                 number_of_surah.classList.add('nomer');
 
+                // membuat isi card audio
                 const audio = document.createElement('div');
                 audio.classList.add('card-audio');
 
+                // membuat audio dengan mengambil audio dari element recitation element tsb diambil dari API yang kita ambil
                 const recitation = document.createElement('audio');
                 recitation.setAttribute('controls', '');
                 recitation.setAttribute('src', el.recitation);
